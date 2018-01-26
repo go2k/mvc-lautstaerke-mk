@@ -5,7 +5,7 @@ import Gui.LautstaerkeFenster;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Lautstaerke extends Observable implements LautstaerkeLesen{
+public class Lautstaerke extends Observable implements LautstaerkeLesen, LautstaerkeSchreiben{
 
     private int lautstaerke;
 
