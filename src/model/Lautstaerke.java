@@ -1,11 +1,14 @@
-package lautstaerke;
+package model;
 
-public class Lautstaerke {
+import java.util.Observable;
+import java.util.Observer;
+
+public class Lautstaerke extends Observable{
 
     private int lautstaerke;
 
-    public Lautstaerke(int lautstaerke) {
-        this.lautstaerke = lautstaerke;
+    public Lautstaerke() {
+        this.lautstaerke = 1;
     }
 
     public int getLautstaerke() {
@@ -15,6 +18,9 @@ public class Lautstaerke {
     public void setLautstaerke(int lautstaerke) {
         if (lautstaerke >= 0 && lautstaerke <= 10) {
             this.lautstaerke = lautstaerke;
+            //Observer benachrichtigen
+            setChanged();
+            notifyObservers();
         }
     }
 
