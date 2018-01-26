@@ -1,16 +1,20 @@
 package model;
 
+import Gui.LautstaerkeFenster;
+
 import java.util.Observable;
 import java.util.Observer;
 
-public class Lautstaerke extends Observable{
+public class Lautstaerke extends Observable implements LautstaerkeLesen{
 
     private int lautstaerke;
+
 
     public Lautstaerke() {
         this.lautstaerke = 1;
     }
 
+    @Override
     public int getLautstaerke() {
         return lautstaerke;
     }

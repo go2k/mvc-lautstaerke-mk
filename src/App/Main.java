@@ -8,9 +8,10 @@ public class Main {
     public static void main(String[] args) {
 
         Lautstaerke model = new Lautstaerke();
-        LautstaerkeFenster lautstaerkeFenster = new LautstaerkeFenster();
-        model.addObserver(lautstaerkeFenster);
+        LautstaerkeFenster presenter = new LautstaerkeFenster();
+        model.addObserver(presenter);
         model.setLautstaerke(7);
+
     }
 
 }

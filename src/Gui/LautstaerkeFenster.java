@@ -1,13 +1,14 @@
 package Gui;
 
 import model.Lautstaerke;
+import model.LautstaerkeLesen;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
 
-public class LautstaerkeFenster extends JFrame implements Observer{
+public class LautstaerkeFenster extends JFrame implements Observer {
 
     private JButton btnLauter, btnLeiser, btnMute;
     private JLabel lblLautstaerke;
@@ -19,7 +20,7 @@ public class LautstaerkeFenster extends JFrame implements Observer{
     private void initComponents() {
 
         btnLauter = new JButton("Lauter");
-        btnLeiser =new JButton("Leiser");
+        btnLeiser = new JButton("Leiser");
         btnMute = new JButton("Mute");
         lblLautstaerke = new JLabel("---");
         lblLautstaerke.setHorizontalAlignment(SwingConstants.CENTER);
@@ -32,13 +33,17 @@ public class LautstaerkeFenster extends JFrame implements Observer{
         this.setTitle("Lautstärke");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
-
     }
 
     @Override
     public void update(Observable o, Object arg) {
-        int lautstaerke = ((Lautstaerke) o).getLautstaerke();
+        // View holt sich Daten vom model via interface
+        int lautstaerke = ((LautstaerkeLesen) o).getLautstaerke();
+
+        // Daten anzeigen
         String lautstaerkeText = String.valueOf(lautstaerke);
         lblLautstaerke.setText(lautstaerkeText);
     }
+
+
 }
